@@ -22,17 +22,45 @@ form.addEventListener('submit', function(e) {
 console.log(valeur);
 
 valeur = valeur.replace(/[^a-zA-Z]/g,'');
-
-const tableau = valeur.split('');
+let tableau = valeur.split('');
 console.log(tableau);
 
 
+
+
 for (let i=0; i<(tableau.length); i++) {
-  
-  tableau[i]===tableau[tableau.length-i-1] ? (affichage.innerText = valeur + " est un palindrome") :  (affichage.innerText = valeur + " n'est pas un palindrome")
+ var lettreGauche = tableau[i];
+// console.log(lettreGauche);
+ var lettreDroite = tableau[tableau.length-i-1]
+//   console.log(lettreDroite);
+
+    do {
+   
+   
+nouveauTableau(tableau);
+
+   
+} while(i < tableau.length-1 )
+
+
+
+   }
+
+
+ 
 }
-
-}
-
-
 )
+  
+  
+  function nouveauTableau(myArray) {
+    let valeur = entree.value;
+  let premierElement = myArray.shift();
+    let dernierElement = myArray.pop();
+    console.log(myArray)
+    // return myArray;
+    if (myArray[myArray.length-1] !== myArray[0]){
+      console.log("pas palindrome")
+      affichage.innerText = valeur + " n'est pas un palindrome"}
+
+  if (affichage.innerText !== valeur + " n'est pas un palindrome"){affichage.innerText = valeur + " est un palindrome"}}
+  
